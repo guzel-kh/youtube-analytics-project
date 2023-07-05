@@ -22,6 +22,25 @@ class Channel:
         self.video_count = self.channel['items'][0]['statistics']['videoCount']
         self.viewCount = self.channel['items'][0]['statistics']['viewCount']
 
+    def __str__(self):
+        return f'{self.title} ({self.url})'
+
+    def __add__(self, other) -> int:
+        """Суммирует количество подписчиков"""
+        return self.subscriberCount + other.subscriberCount
+
+    def __sub__(self, other) -> int:
+        """ Вычитает количество подписчиков одного канала из количества подписчиков другого канала"""
+        return int(self.subscriberCount) - int(other.subscriberCount)
+
+    def __gt__(self, other) -> bool:
+        """Сравнивает количество подписчиков двух каналов, больше ли"""
+        return self.subscriberCount > other.subscriberCount
+
+    def __ge__(self, other) -> bool:
+        """Сравнивает количество подписчиков двух каналов, больше или равно"""
+        return self.subscriberCount >= other.subscriberCount
+
     def print_info(self) -> None:
         """Выводит в консоль информацию о канале."""
         print(self.channel)
