@@ -27,7 +27,7 @@ class Channel:
 
     def __add__(self, other) -> int:
         """Суммирует количество подписчиков"""
-        return self.subscriberCount + other.subscriberCount
+        return int(self.subscriberCount) + int(other.subscriberCount)
 
     def __sub__(self, other) -> int:
         """ Вычитает количество подписчиков одного канала из количества подписчиков другого канала"""
@@ -35,11 +35,11 @@ class Channel:
 
     def __gt__(self, other) -> bool:
         """Сравнивает количество подписчиков двух каналов, больше ли"""
-        return self.subscriberCount > other.subscriberCount
+        return int(self.subscriberCount) > int(other.subscriberCount)
 
     def __ge__(self, other) -> bool:
         """Сравнивает количество подписчиков двух каналов, больше или равно"""
-        return self.subscriberCount >= other.subscriberCount
+        return int(self.subscriberCount) >= int(other.subscriberCount)
 
     def print_info(self) -> None:
         """Выводит в консоль информацию о канале."""
